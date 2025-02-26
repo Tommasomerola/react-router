@@ -1,33 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// importiamo gli elementi della libreria di gestione delle rotte
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// Layout
+import DefaultLayout from "./layouts/DefaultLayout";
+
+// pages
+import HomePage from "./pages/HomePage";
+import ChiSiamo from "./pages/ChiSiamo";
+import ListPost from "./pages/ListPost";
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <BrowserRouter>
+
+        <Routes>
+
+            {/* DefaultLayout viene utilizzato come layout di default per le rotte */}
+          <Route element={<DefaultLayout />}>
+          
+              {/* Definizione delle rotte */}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/chisiamo" element={<ChiSiamo />} />
+            <Route path="/listpost" element={<ListPost />} />
+
+          </Route>
+
+        </Routes>
+
+      </BrowserRouter>
     </>
   )
 }
