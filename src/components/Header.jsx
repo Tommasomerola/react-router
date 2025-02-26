@@ -8,7 +8,7 @@ export default function Header () {
             <div className="nav-bar">
                 {/* NavLink */}
                 <NavLink to="/"></NavLink>
-                <NavLink to="/chisiamo"></NavLink>
+                <NavLink to="/chisiamo">Chi siamo</NavLink>
                 <NavLink to="/listpost">Lista dei post</NavLink>
             </div>
         </header>
